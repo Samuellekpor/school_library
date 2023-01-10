@@ -1,7 +1,7 @@
-require "./person.rb"
+require "person.rb"
 
 class Student < Person
-  def initialize(name = "Unknown", age, parent_permission = true, classroom)
+  def initialize(classroom, age, parent_permission: true, name = 'Unknown')
     super(name, age, parent_permission)
     @classroom = classroom
   end
@@ -9,4 +9,5 @@ class Student < Person
   def play_hooky
     "¯\(ツ)/¯"
   end
+
 end
