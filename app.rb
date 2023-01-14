@@ -1,8 +1,8 @@
-require './book.rb'
-require './student.rb'
-require './teacher.rb'
-require './rental.rb'
-require './classroom.rb'
+require './book'
+require './student'
+require './teacher'
+require './rental'
+require './classroom'
 
 class App
   attr_reader :books, :people, :rentals
@@ -36,18 +36,19 @@ class App
   end
 
   def create_a_teacher(specialization:, age:, name:, parent_permission: true)
-    @people.push(Teacher.new(specialization: specialization, age: age, name: name, parent_permission: parent_permission))
+    @people.push(Teacher.new(specialization:, age:, name:,
+                             parent_permission:))
   end
 
-  def create_a_student(classroom:nil, age:, name:, parent_permission: true)
-    @people.push(Teacher.new(classroom: classroom, age: age, name: name, parent_permission: parent_permission))
+  def create_a_student(age:, name:, classroom: nil, parent_permission: true)
+    @people.push(Teacher.new(classroom:, age:, name:, parent_permission:))
   end
 
   def create_a_book(title:, author:)
-    @books.push(Book.new(title: title, author: author))
+    @books.push(Book.new(title:, author:))
   end
 
   def create_a_rental(date:, person:, book:)
-    @rentals.push(Rental.new(date: date, person: person, book: book))
+    @rentals.push(Rental.new(date:, person:, book:))
   end
 end
