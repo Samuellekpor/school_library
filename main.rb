@@ -31,7 +31,7 @@ def create_a_book(app)
   puts 'Book created successfully!'
 end
 
-def create_rental(app)
+def create_a_rental(app)
   puts 'Select a book from the following list by number : '
   app.books.each_with_index do |book, index|
     puts "#{index}. Title: #{book.title}, Author: #{book.author}"
@@ -48,7 +48,7 @@ def create_rental(app)
 
   puts 'Date : '
   date = gets.chomp
-  app.create_rental(date:, person:, book:)
+  app.create_a_rental(date:, person:, book:)
   puts 'Rental created sucessfully!'
 end
 
