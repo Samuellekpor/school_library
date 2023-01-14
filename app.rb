@@ -21,7 +21,7 @@ class App
 
   def list_all_people
     @people&.each do |person|
-      puts "ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
+      puts "[#{person.class}] - ID: #{person.id}, Name: #{person.name}, Age: #{person.age}"
     end
   end
 
@@ -33,5 +33,21 @@ class App
         puts "Book: #{rental.book.title}, Person: #{rental.person.name}, Date: #{rental.date}"
       end
     end
+  end
+
+  def create_a_teacher(specialization:, age:, name:, parent_permission: true)
+    @people.push(Teacher.new(specialization: specialization, age: age, name: name, parent_permission: parent_permission))
+  end
+
+  def create_a_student(classroom:nil, age:, name:, parent_permission: true)
+    @people.push(Teacher.new(classroom: classroom, age: age, name: name, parent_permission: parent_permission))
+  end
+
+  def create_a_book(title:, author:)
+    @books.push(Book.new(title: title, author: author))
+  end
+
+  def create_a_rental(date:, person:, book:)
+    @rentals.push(Rental.new(date: date, person: person, book: book))
   end
 end
